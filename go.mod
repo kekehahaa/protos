@@ -1,3 +1,3 @@
-module sso/v2
+module github.com/kekehahaa/protos
 
 go 1.24.4
