@@ -4,6 +4,8 @@ package auth;
 
 option go_package = "kekehahaa.sso.v1;ssov1";
 
+import "validate/validate.proto"; 
+
 service Auth {
     rpc Register (RegisterRequest) returns (RegisterResponse);
     rpc Login (LoginRequest) returns (LoginResponse);
@@ -11,9 +13,9 @@ service Auth {
 }
 
 message RegisterRequest {
-    string email = 1;
-    string username = 2;
-    string password = 3;
+    string email = 1 [(validate.rules).string.email = true];
+    string username = 2 [(validate.rules).string = {min_len: 8, max_len: 50, ignore_empty: false}];
+    string password = 3 [(validate.rules).string = {min_len: 8, max_len: 50, ignore_empty: false}];
 }
 
 message RegisterResponse {
@@ -21,9 +23,9 @@ message RegisterResponse {
 }
 
 message LoginRequest {
-    string username = 1;
-    string password = 2;
-    int32 app_id = 3;
+    string username = 1 [(validate.rules).string = {min_len: 8, max_len: 50, ignore_empty: false}];
+    string password = 2 [(validate.rules).string = {min_len: 8, max_len: 50, ignore_empty: false}];
+    int32 app_id = 3 [(validate.rules).int32 = {ignore_empty: false}];
 }
 
 message LoginResponse {
@@ -31,7 +33,7 @@ message LoginResponse {
 }
 
 message IsAdminRequest {
-    int64 user_id = 1;
+    int64 user_id = 1 [(validate.rules).int64 = {ignore_empty: false}];
 }
 
 message IsAdminResponse {

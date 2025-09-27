@@ -7,6 +7,7 @@
 package ssov1
 
 import (
+	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -321,21 +322,21 @@ var File_sso_sso_proto protoreflect.FileDescriptor
 
 const file_sso_sso_proto_rawDesc = "" +
 	"\n" +
-	"\rsso/sso.proto\x12\x04auth\"_\n" +
-	"\x0fRegisterRequest\x12\x14\n" +
-	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
-	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
-	"\bpassword\x18\x03 \x01(\tR\bpassword\"+\n" +
+	"\rsso/sso.proto\x12\x04auth\x1a\x17validate/validate.proto\"\x84\x01\n" +
+	"\x0fRegisterRequest\x12\x1d\n" +
+	"\x05email\x18\x01 \x01(\tB\a\xfaB\x04r\x02`\x01R\x05email\x12(\n" +
+	"\busername\x18\x02 \x01(\tB\f\xfaB\tr\a\x10\b\x182\xd0\x01\x00R\busername\x12(\n" +
+	"\bpassword\x18\x03 \x01(\tB\f\xfaB\tr\a\x10\b\x182\xd0\x01\x00R\bpassword\"+\n" +
 	"\x10RegisterResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\"]\n" +
-	"\fLoginRequest\x12\x1a\n" +
-	"\busername\x18\x01 \x01(\tR\busername\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x15\n" +
-	"\x06app_id\x18\x03 \x01(\x05R\x05appId\"%\n" +
+	"\auser_id\x18\x01 \x01(\x03R\x06userId\"\x82\x01\n" +
+	"\fLoginRequest\x12(\n" +
+	"\busername\x18\x01 \x01(\tB\f\xfaB\tr\a\x10\b\x182\xd0\x01\x00R\busername\x12(\n" +
+	"\bpassword\x18\x02 \x01(\tB\f\xfaB\tr\a\x10\b\x182\xd0\x01\x00R\bpassword\x12\x1e\n" +
+	"\x06app_id\x18\x03 \x01(\x05B\a\xfaB\x04\x1a\x02@\x00R\x05appId\"%\n" +
 	"\rLoginResponse\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token\")\n" +
-	"\x0eIsAdminRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\",\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"2\n" +
+	"\x0eIsAdminRequest\x12 \n" +
+	"\auser_id\x18\x01 \x01(\x03B\a\xfaB\x04\"\x02@\x00R\x06userId\",\n" +
 	"\x0fIsAdminResponse\x12\x19\n" +
 	"\bis_admin\x18\x01 \x01(\bR\aisAdmin2\xab\x01\n" +
 	"\x04Auth\x129\n" +
