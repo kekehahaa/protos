@@ -25,7 +25,7 @@ message RegisterResponse {
 message LoginRequest {
     string username = 1 [(validate.rules).string = {min_len: 8, max_len: 50, ignore_empty: false}];
     string password = 2 [(validate.rules).string = {min_len: 8, max_len: 50, ignore_empty: false}];
-    int32 app_id = 3 [(validate.rules).int32 = {ignore_empty: false}];
+    int32 app_id = 3 [(validate.rules).int32.gt = 0];
 }
 
 message LoginResponse {
@@ -33,7 +33,7 @@ message LoginResponse {
 }
 
 message IsAdminRequest {
-    int64 user_id = 1 [(validate.rules).int64 = {ignore_empty: false}];
+    int64 user_id = 1 [(validate.rules).int64.gt = 0];
 }
 
 message IsAdminResponse {

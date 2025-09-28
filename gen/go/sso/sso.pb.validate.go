@@ -365,6 +365,17 @@ func (m *LoginRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.GetAppId() <= 0 {
+		err := LoginRequestValidationError{
+			field:  "AppId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if len(errors) > 0 {
 		return LoginRequestMultiError(errors)
 	}
@@ -565,6 +576,17 @@ func (m *IsAdminRequest) validate(all bool) error {
 	}
 
 	var errors []error
+
+	if m.GetUserId() <= 0 {
+		err := IsAdminRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return IsAdminRequestMultiError(errors)
